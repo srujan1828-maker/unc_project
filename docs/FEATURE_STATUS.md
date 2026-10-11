@@ -27,6 +27,8 @@ Owner recovery is implemented through a local administrator-issued, private ten-
 
 ## Build and test evidence
 
+All five platform CI jobs passed in [run 38138761406](https://github.com/srujan1828-maker/unc_project/actions/runs/38138761406), producing all five development artifacts. This confirms the configured automated checks, not the full remaining roadmap or physical-device acceptance.
+
 - Production web build and TypeScript checks run locally.
 - Service tests exercise real network requests, SQLite state, ACLs, integrity failures, persistence, invitations, guest/observer enforcement, task version conflicts, file requests, and independent Yjs edits.
 - Two Chromium contexts exercise pairing, clipboard, file upload/download, chat, notes, live/offline scratchpad merge, task changes, requests, presence, responsive layout, themes, revocation, and screen consent/signaling.

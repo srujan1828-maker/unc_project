@@ -1,5 +1,7 @@
 # OmniSync
 
+[![Platform checks](https://github.com/srujan1828-maker/unc_project/actions/workflows/ci.yml/badge.svg)](https://github.com/srujan1828-maker/unc_project/actions/workflows/ci.yml)
+
 **A local workspace for your devices, files, and ideas.**
 
 This repository now contains a working development release: a responsive web/PWA workspace, a persistent local service, a CLI, and native macOS, Android, Windows, and Linux companion clients. It is **not the complete multi-year product roadmap**. See [feature status](docs/FEATURE_STATUS.md) for exactly what works and what remains.
@@ -86,7 +88,7 @@ This release uses **trusted-host HTTPS and revocable device sessions**, not the 
 
 The owner browser is the administrative identity. Preserve its browser profile/cookies and back up the data directory. If owner access is lost, run `npm run recover-owner` on the service host, open the private `.omnisync/recovery-key` file, and select **Recover owner access** on the browser's join screen. The key expires after ten minutes and works once. Recovery preserves workspace data and other devices, invalidates previous owner sessions, and clears outstanding invitations. For a custom data directory, pass `-- --data-dir /path/to/data`. Do not delete the data directory to recover access.
 
-GitHub Actions builds downloadable service/web, Android, Windows, macOS, and Linux artifacts. See [artifact installation](docs/RELEASE_ARTIFACTS.md); a workflow definition alone does not establish a successful platform build.
+All five platform jobs passed in [GitHub Actions run 38138761406](https://github.com/srujan1828-maker/unc_project/actions/runs/38138761406), which provides downloadable service/web, Android, Windows, macOS, and Linux artifacts. See [artifact installation](docs/RELEASE_ARTIFACTS.md); a workflow definition alone does not establish a successful platform build.
 
 See [security](docs/SECURITY.md), [implemented protocol](docs/PROTOCOL.md), and [architecture](docs/ARCHITECTURE.md).
 

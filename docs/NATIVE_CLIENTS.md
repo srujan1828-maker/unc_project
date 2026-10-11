@@ -40,7 +40,7 @@ The SwiftUI companion includes menu-bar reopening, optional launch at login, Key
 
 Packaging includes an app icon, application metadata, signature verification, universal archives, and checksums. Default builds are ad-hoc signed for development. Optional Developer ID signing/notarization uses an existing identity and Keychain profile. No signing credentials are supplied or stored in the repository.
 
-The extracted Swift networking core compiled on Linux and passed five tests, including real-service pairing, Unicode clipboard, cancellation/resume, verified multi-chunk/empty downloads, hash rejection, overwrite refusal, revocation, origin validation, and redirect rejection. SwiftUI/AppKit, Keychain, login items, actual `.app`/DMG generation, and Mac UI execution still require macOS. The [macOS CI job](https://github.com/srujan1828-maker/unc_project/actions/runs/38124915195) has passed Swift/Keychain tests, universal app/DMG packaging, signature verification, a startup smoke test, and archive upload. Physical-device acceptance remains pending.
+The extracted Swift networking core compiled on Linux and passed five tests, including real-service pairing, Unicode clipboard, cancellation/resume, verified multi-chunk/empty downloads, hash rejection, overwrite refusal, revocation, origin validation, and redirect rejection. SwiftUI/AppKit, Keychain, login items, actual `.app`/DMG generation, and Mac UI execution still require macOS. The [macOS CI job](https://github.com/srujan1828-maker/unc_project/actions/runs/38138761406) has passed Swift/Keychain tests, universal app/DMG packaging, signature verification, a startup smoke test, and archive upload. Physical-device acceptance remains pending.
 
 ## Windows
 
