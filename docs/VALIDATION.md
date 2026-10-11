@@ -1,6 +1,6 @@
 # Validation record
 
-These checks ran in the prepared Linux cloud workspace. They validate this development release, not the entire product vision or a signed production distribution.
+These checks ran in the prepared Linux cloud workspace and, where noted, GitHub-hosted platform runners. They validate this development release, not the entire product vision or a signed production distribution.
 
 | Check                         | Result                               | Coverage and limits                                                                                                                                                                        |
 | ----------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -14,10 +14,10 @@ These checks ran in the prepared Linux cloud workspace. They validate this devel
 | Android                       | Build and lint passed                | Debug APK; no emulator or physical-device run                                                                                                                                              |
 | Windows                       | Release build and publish passed     | Linux cross-compilation for Windows x64; WPF/DPAPI runtime remains untested                                                                                                                |
 | Linux                         | GTK interaction and transport passed | Xvfb window, service connection, text-share action, verified file exchange; Secret Service enrollment needs a desktop session                                                              |
-| macOS                         | Core: 5 tests passed                 | Swift networking core compiled/tested on Linux; SwiftUI, Keychain, app/DMG packaging, and UI still require macOS                                                                           |
+| macOS                         | Core + Mac CI passed                 | Five portable Swift tests pass locally; Mac CI also passes Keychain tests, universal packaging, signature verification, and app startup                                                    |
 | Production startup            | Passed                               | Service health and built HTML return HTTP 200; first-run setup key has mode 0600                                                                                                           |
 
-Run the portable checks with `npm run check`. Native commands are in [NATIVE_CLIENTS.md](NATIVE_CLIENTS.md). CI definitions are included, but have not been executed on a remote CI runner.
+Run the portable checks with `npm run check`. Native commands are in [NATIVE_CLIENTS.md](NATIVE_CLIENTS.md). GitHub workflow run [38124915195](https://github.com/srujan1828-maker/unc_project/actions/runs/38124915195) passed web/service, Windows, macOS, and Linux jobs. Android failed in the third-party SDK setup action before compilation; the workflow now uses the runner SDK and Java 21, with a follow-up run pending. Public job pages expose step outcomes; full logs require GitHub sign-in.
 
 ## Local build artifacts
 

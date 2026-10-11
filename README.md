@@ -59,7 +59,7 @@ See [native development](docs/NATIVE_CLIENTS.md) for commands, dependencies, and
 | ------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------- |
 | Android | `cd apps/android && ./gradlew assembleDebug`           | Debug APK compiled; physical-device run pending                                       |
 | Windows | `dotnet build apps/windows/OmniSync.csproj -c Release` | Compiled with zero warnings/errors; Windows UI run pending                            |
-| macOS   | `cd apps/macos && bash build-app.sh`                   | Swift core tests pass; app/DMG packaging and UI need a Mac                            |
+| macOS   | `cd apps/macos && bash build-app.sh`                   | Mac CI passes tests, universal packaging, and app startup                             |
 | Linux   | `python3 apps/linux/client.py`                         | GTK window and native share action exercised under Xvfb; transport integration passed |
 | CLI     | `npm run omni -- --help`                               | Real uploads, downloads, checksums, and clipboard exchange tested                     |
 
