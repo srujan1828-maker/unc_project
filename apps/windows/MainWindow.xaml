@@ -1,0 +1,26 @@
+<Window x:Class="OmniSync.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="OmniSync" Width="850" Height="740" MinWidth="650" MinHeight="520" Background="#F5F8F1" AllowDrop="True" Drop="FileDropped">
+  <DockPanel Margin="28">
+    <StackPanel DockPanel.Dock="Top">
+      <TextBlock Text="omnisync." FontSize="32" Foreground="#315D43" FontWeight="SemiBold"/>
+      <TextBlock x:Name="Status" Text="Pair with your local workspace service." Margin="0,9,0,22" TextWrapping="Wrap" Foreground="#61745B"/>
+      <StackPanel x:Name="Pairing">
+        <TextBlock Text="Workspace HTTPS address"/><TextBox x:Name="ServerAddress" Text="http://127.0.0.1:47800"/>
+        <TextBlock Text="Device name"/><TextBox x:Name="DeviceName" Text="My Windows PC"/>
+        <TextBlock Text="Pairing code"/><TextBox x:Name="PairingCode"/>
+        <Button Content="Pair this device" Click="Pair" HorizontalAlignment="Left"/>
+        <TextBlock Text="Create a single-use code from Add device in the web workspace. Your session is protected with Windows DPAPI." TextWrapping="Wrap" Margin="0,15,0,20" Foreground="#718168"/>
+      </StackPanel>
+      <StackPanel x:Name="Actions" Visibility="Collapsed">
+        <WrapPanel><Button Content="Send clipboard" Click="SendClipboard"/><Button Content="Send file…" Click="SendFile"/><Button Content="Open full workspace" Click="OpenWorkspace"/></WrapPanel>
+        <TextBox x:Name="Snippet" AcceptsReturn="True" Height="65" TextWrapping="Wrap" Margin="0,16,0,10"/>
+        <Button Content="Share text" Click="ShareText" HorizontalAlignment="Left" Margin="0,0,0,15"/>
+      </StackPanel>
+    </StackPanel>
+    <TextBlock DockPanel.Dock="Bottom" Text="Manual clipboard sharing · Verified file transfers · No background clipboard reading" Margin="0,15,0,0" Foreground="#7D8E73" FontSize="11"/>
+    <TabControl x:Name="Tabs" Visibility="Collapsed">
+      <TabItem Header="Clipboard"><DockPanel Margin="14"><Button DockPanel.Dock="Bottom" Content="Copy selected item" Click="CopySelected" HorizontalAlignment="Left"/><ListBox x:Name="Clips" DisplayMemberPath="text" Margin="0,0,0,12"/></DockPanel></TabItem>
+      <TabItem Header="Files"><DockPanel Margin="14"><Button DockPanel.Dock="Bottom" Content="Download selected file…" Click="DownloadFile" HorizontalAlignment="Left"/><ListBox x:Name="Files" DisplayMemberPath="name" Margin="0,0,0,12"/></DockPanel></TabItem>
+      <TabItem Header="Devices"><ListBox x:Name="Devices" DisplayMemberPath="name" Margin="14"/></TabItem>
+    </TabControl>
+  </DockPanel>
+</Window>

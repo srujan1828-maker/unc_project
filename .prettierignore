@@ -1,0 +1,13 @@
+node_modules
+dist
+.omnisync
+test-results
+playwright-report
+docs/PRODUCT_VISION.md
+apps/android/.gradle
+apps/android/**/build
+apps/android/gradlew*
+apps/windows/bin
+apps/windows/obj
+apps/macos/.build
+apps/macos/build

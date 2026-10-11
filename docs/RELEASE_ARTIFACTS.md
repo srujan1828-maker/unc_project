@@ -1,0 +1,15 @@
+# GitHub build artifacts
+
+Open the repository's **Actions → OmniSync checks** workflow and select a successful run for the commit you want to install. Artifacts appear at the bottom of that run. Source pushes trigger these jobs; failed or unstarted jobs do not provide a validated build. Development artifacts are not signed production releases or app-store submissions.
+
+| Artifact                               | Installation                                                                                                                                                                                                                                                |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `omnisync-service-and-web`             | Extract into an empty directory. Install Node.js 24, run `npm ci --omit=dev`, then `npm start`. The web UI is already built: do not run `npm run build` from this runtime-only artifact. Enroll the owner using the private `.omnisync/bootstrap-key` file. |
+| `omnisync-android-debug`               | Install the debug APK on Android 8+ and pair with a workspace invitation. It is debug-signed and has not been verified on physical phones here.                                                                                                             |
+| `omnisync-windows-x64-development`     | Extract the entire package on Windows 10/11 x64 and run `OmniSync.exe`. CI publishes a self-contained .NET runtime. The earlier local ZIP in `artifacts/` is framework-dependent and needs .NET 8 Desktop Runtime.                                          |
+| `omnisync-macos-universal-development` | Contains Apple silicon/Intel app ZIP, DMG, and checksums. Default builds are ad-hoc signed; see [macOS instructions](../apps/macos/README.md). Mac CI must succeed before these binaries are available.                                                     |
+| `omnisync-linux-companion`             | Install Python 3, PyGObject/GTK 4 and `secret-tool`, then run the supplied `client.py` in an unlocked desktop session. See [native development](NATIVE_CLIENTS.md).                                                                                         |
+
+For source development, clone the repository and follow the root README instead. Native companions connect to the same service; they do not bundle the service themselves. LAN connections require trusted HTTPS as described in [NETWORKING.md](NETWORKING.md).
+
+CI artifacts expire according to GitHub retention settings. The workflows do not publish releases automatically or upload private workspace data, credentials, or signing keys. macOS notarization requires your Developer ID identity and a Keychain notary profile; the supplied build script supports those separately.
